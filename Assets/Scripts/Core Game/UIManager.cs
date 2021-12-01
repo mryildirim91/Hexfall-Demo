@@ -1,5 +1,3 @@
-using System;
-using Mryildirim.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

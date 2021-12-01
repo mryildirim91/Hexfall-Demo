@@ -18,7 +18,7 @@ namespace Mryildirim.CoreGame
 
         private void DetectTileMatch()
         {
-            var size = Physics2D.CircleCastNonAlloc(transform.position, 0.25f, Vector2.one, _hits, 0.25f,_gameTileLayer);
+            var size = Physics2D.CircleCastNonAlloc(transform.position, 0.3f, Vector2.one, _hits, 0.3f,_gameTileLayer);
 
             if (size != MatchNumber)
             {

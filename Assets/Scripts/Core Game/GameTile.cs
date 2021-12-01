@@ -1,7 +1,5 @@
-using System;
 using Mryildirim.ScriptableObjects;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Mryildirim.CoreGame
 {
@@ -31,6 +29,7 @@ namespace Mryildirim.CoreGame
             UIManager.Instance.UpdateScore(5);
         }
 
+        //Sets the type of the tile once Instantiated
         public  void SetTileType(int randomTileIndex)
         {
             GameTileData data = _gameTileDatas[randomTileIndex];

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using Mryildirim.ScriptableObjects;
 using Mryildirim.Utilities;
@@ -27,11 +25,13 @@ namespace Mryildirim.CoreGame
             EventManager.OnTilesDestroyed -= CountTilesInColumn;
         }
         
+       
         private void CountTilesInColumn()
         {
             StartCoroutine(CountTilesInColumnRoutine());
         }
         
+        //Counts the number of tiles in each column by casting ray from the bottom
         private IEnumerator CountTilesInColumnRoutine()
         {
             var hitSize = Physics2D.RaycastNonAlloc(transform.position, Vector2.up, _hits, Mathf.Infinity,_gameTileLayer);
@@ -58,6 +58,7 @@ namespace Mryildirim.CoreGame
             gameTile.transform.position = transform.position + Vector3.up * 20 * (y+1);
         }
         
+        //Moves tiles down if there is gap between them
         private IEnumerator MoveTilesRoutine(int size)
         {
             for (int i = 0; i < size - 1; i++)

@@ -1,4 +1,3 @@
-using DG.Tweening;
 using Mryildirim.Utilities;
 using UnityEngine;
 

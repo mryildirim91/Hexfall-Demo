@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Mryildirim.Utilities;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Mryildirim.CoreGame
 {

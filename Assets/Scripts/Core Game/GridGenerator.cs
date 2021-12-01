@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using DG.Tweening;
 using Mryildirim.ScriptableObjects;
 using Mryildirim.Utilities;
 using UnityEngine;
@@ -10,8 +8,8 @@ namespace Mryildirim.CoreGame
 {
     public class GridGenerator : MonoBehaviour
     {
-        private GameTile[,] _gameTiles;
         private int _width, _height;
+        private GameTile[,] _gameTiles;
         [SerializeField] private GameObject _gameTile, _matchDetector, _newTileSpawner;
         [SerializeField] private GridData _gridData;
 
@@ -24,10 +22,10 @@ namespace Mryildirim.CoreGame
         private void Start()
         {
             SpawnInitialTiles();
-            SpawnDetectors();
+            SpawnMatchDetectors();
             SpawnNewTileSpawner();
         }
-
+        
         private void SpawnInitialTiles()
         {
             var numberOfTypes = Enum.GetValues(typeof(GameTileType)).Length;
@@ -64,6 +62,7 @@ namespace Mryildirim.CoreGame
             return new Vector2(x * Mathf.Sqrt(3) / 2 - xOffset , y - heightShift - yOffset);
         }
 
+        //This function stops tiles from matching in the beginning of the game.
         private void SetTilesInitially(int numberOfTypes, int x, int y)
         {
             int randomTileIndex;
@@ -73,7 +72,7 @@ namespace Mryildirim.CoreGame
             _gameTiles[x,y].SetTileType(randomTileIndex);
         }
 
-        private void SpawnDetectors()
+        private void SpawnMatchDetectors()
         {
             const float verticalOffset = 0.5f;
             

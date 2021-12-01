@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using Mryildirim.Utilities;
 using UnityEngine;
@@ -55,7 +53,7 @@ namespace Mryildirim.CoreGame
         private IEnumerator Rotate()
         {
             yield return new WaitForSeconds(_rotationDuration);
-            
+
             transform.DORotate(CalculateRotationDirection(), _rotationDuration, RotateMode.FastBeyond360)
                 .SetEase(Ease.Linear).OnComplete(() =>
                 {
@@ -68,6 +66,7 @@ namespace Mryildirim.CoreGame
                         }
                         else
                         {
+                            _rotationCount = 0;
                             _canRotateAgain = true;
                             Outline outline = GetComponent<Outline>();
                             outline.ToggleOutlines(false);
@@ -98,6 +97,7 @@ namespace Mryildirim.CoreGame
             return transform.rotation.eulerAngles + new Vector3(0,0, _rotationDirection * rotationAngle);
         }
 
+        //When there is a match the tiles will stop turning;
         private void StopRotation()
         {
             _stopRotation = true;
